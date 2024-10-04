@@ -43,5 +43,4 @@ python -m pip install frida
 #/opt/QQ/qq --no-sandbox --disable-gpu
 sudo python GetAppid.py
 # 输出所有名为qq的进程
-sleep 30
 ps -ef | grep qq

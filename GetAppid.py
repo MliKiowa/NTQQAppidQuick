@@ -1,7 +1,6 @@
 import os
 from time import sleep
 import frida
-import sys
 
 def on_message(message, data):
     if message['type'] == 'send':

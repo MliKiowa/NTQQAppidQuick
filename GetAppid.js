@@ -7,7 +7,6 @@ async function mainWin() {
     while (hookPtr == null) {
         hookPtr = Module.findExportByName(waitModule, symbolGetString);
     }
-    send("Hook Addr:" + hookPtr);
     Interceptor.attach(hookPtr, {
         onEnter(args) {
             this.data = args[2];
@@ -24,14 +23,12 @@ async function mainWin() {
 async function mainLinux() {
     let exports = Module.enumerateExports(waitModule);
     let hookPtr = exports.find(exp => exp.name == symbolGetString).address;
-    send("Hook Addr:" + hookPtr);
     Interceptor.attach(hookPtr, {
         onEnter(args) {
             this.data = args[2];
         },
         onLeave(retval) {
             let data = Memory.readUtf8String(this.data).substring(0, 10);
-            send(data);
             if (!findAppid && /^\d+$/.test(data) && data.startsWith("5")) {
                 send(data);
                 findAppid = true;
