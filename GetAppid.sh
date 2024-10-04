@@ -42,3 +42,5 @@ x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/pass
 python -m pip install frida
 #/opt/QQ/qq --no-sandbox --disable-gpu
 sudo python GetAppid.py
+# 输出所有名为qq的进程
+ps -ef | grep qq
