@@ -16,12 +16,9 @@ def main():
     env = dict(os.environ)
     print(env)
     pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox','--disable-gpu'], env=env)
-    # pid在/opt/QQ/pid.txt
-    with open("/opt/QQ/pid.txt") as f:
-        pid = int(f.read())
     print("real PID",pid)
     session = frida.attach(pid)
-    #frida.resume(pid)
+    frida.resume(pid)
     with open("GetAppid.js") as f:
         script = session.create_script(f.read())
         script.on('message', on_message)
