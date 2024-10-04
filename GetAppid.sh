@@ -31,8 +31,10 @@ chmod 777 /opt/QQ/
 # 启动QQ
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
 Xvfb :1 -screen 0 1080x760x16 &
+sleep 5  # 等待 Xvfb 启动
+export DISPLAY=:1
 fluxbox &
-x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
-export DISPLAY=:1 
+sleep 5  # 等待 fluxbox 启动
+x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever &
 python -m pip install frida
 python GetAppid.py
