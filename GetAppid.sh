@@ -28,7 +28,7 @@ apt-get -f install -y
 rm linuxqq.deb
 chmod 777 /opt/QQ/
 
-mv /LoadDelay.js /opt/QQ/resources/app/LoadDelay.js
+mv ./LoadDelay.js /opt/QQ/resources/app/LoadDelay.js
 sed -i 's/"main": ".\/application\/app_launcher\/index.js"/"main": ".\/LoadDelay.js"/' /opt/QQ/resources/app/package.json
 
 # 启动QQ
