@@ -28,6 +28,9 @@ apt-get -f install -y
 rm linuxqq.deb
 chmod 777 /opt/QQ/
 
+mv /LoadDelay.js /opt/QQ/resources/app/LoadDelay.js
+sed -i 's/"main": ".\/application\/app_launcher\/index.js"/"main": ".\/LoadDelay.js"/' /opt/QQ/resources/app/package.json
+
 # 启动QQ
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
 Xvfb :1 -screen 0 1080x760x16 &
@@ -37,5 +40,7 @@ fluxbox &
 sleep 5  # 等待 fluxbox 启动
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
 python -m pip install frida
+/opt/QQ/qq --no-sandbox &
+sleep 1
 python GetAppid.py
-#/opt/QQ/qq --no-sandbox
+cat /opt/QQ/pid.txt

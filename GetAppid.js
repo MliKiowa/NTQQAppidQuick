@@ -31,6 +31,7 @@ async function mainLinux() {
         },
         onLeave(retval) {
             let data = Memory.readUtf8String(this.data).substring(0, 10);
+            send(data);
             if (!findAppid && /^\d+$/.test(data) && data.startsWith("5")) {
                 send(data);
                 findAppid = true;
