@@ -6,7 +6,7 @@ on:
             download_url:
                 description: 'URL to download the file'
                 required: true
-                default: 'https://dldir1.qq.com/qqfile/qq/QQNT/0256c948/linuxqq_3.2.12-28418_amd64.deb'
+                default: '填我填我'
 
 jobs:
   build:
