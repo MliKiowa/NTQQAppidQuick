@@ -1,4 +1,5 @@
 import os
+from time import sleep
 import frida
 import sys
 
@@ -25,7 +26,7 @@ def main():
         script.load()
 
     print("[!] Ctrl+D on UNIX, Ctrl+Z on Windows/cmd.exe to detach from instrumented program.\n\n")
-    sys.stdin.read()
+    sleep(30)
     session.detach()
 
 if __name__ == '__main__':
