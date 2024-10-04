@@ -15,7 +15,7 @@ def main():
     # 获取所有环境变量
     env = dict(os.environ)
     print(os.environ['DISPLAY'])
-    pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox','--disable-gpu'], env=env)
+    pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox'], env=env)
     print("real PID",pid)
     session = frida.attach(pid)
     frida.resume(pid)
