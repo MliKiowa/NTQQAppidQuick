@@ -12,7 +12,8 @@ def on_message(message, data):
 
 
 def main():
-    pid = frida.spawn(['/opt/QQ/qq','--no-sandbox'])
+    env = {'DISPLAY': ':1'}
+    pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox'], env=env)
     session = frida.attach(pid)
     frida.resume(pid)
     with open("GetAppid.js") as f:
