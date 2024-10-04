@@ -4,7 +4,7 @@ import sys
 def on_message(message, data):
     #  print("[%s] => %s" % (message, data))
     if message['type'] == 'send':
-        print("[Python] [Appid]",message['payload'])
+        print("[Python] [Appid]", message['payload'] )
         #写到文件
         # #设置utf8
         # with open('log.txt', 'a',encoding='utf8') as f:
