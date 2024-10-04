@@ -42,7 +42,7 @@ x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/pass
 python -m pip install frida
 /opt/QQ/qq --no-sandbox --disable-gpu &
 pid=$!
-kill -s SIGSTOP $pid
+#kill -s SIGSTOP $pid
 echo "Process ID: $pid"
 # 将pid输出到/opt/QQ/pid.txt
 echo $pid > /opt/QQ/pid.txt
