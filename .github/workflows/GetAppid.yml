@@ -2,10 +2,16 @@ name: AppidQuick
 
 on:
     workflow_dispatch:
+        inputs:
+            download_url:
+                description: 'URL to download the file'
+                required: true
+                default: '填我填我'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
         - name: Clone Repository
           uses: actions/checkout@v4
@@ -15,5 +21,4 @@ jobs:
             python-version: '3.10' 
 
         - name: Get Appid
-          run: |
-            sudo bash ./GetAppid.sh
+          run: sudo bash ./GetAppid.sh ${{ github.event.inputs.download_url }}

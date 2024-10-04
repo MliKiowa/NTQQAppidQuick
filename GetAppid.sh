@@ -22,7 +22,7 @@ apt-get install fluxbox -y
 apt-get install x11vnc -y
 
 # 安装QQ
-curl -o linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/1aff6d6d/linuxqq_3.2.12-28060_amd64.deb
+curl -o linuxqq.deb $1
 dpkg -i linuxqq.deb
 apt-get -f install -y
 rm linuxqq.deb
