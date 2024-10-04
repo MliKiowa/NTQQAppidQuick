@@ -12,7 +12,7 @@ async function mainWin() {
             this.data = args[2];
         },
         onLeave(retval) {
-            let data = Memory.readUtf8String(this.data).substring(0, 10);
+            let data = Memory.readUtf8String(this.data).substring(0, 20);
             if (!findAppid && /^\d+$/.test(data) && data.startsWith("5")) {
                 send(data);
                 findAppid = true;
@@ -28,9 +28,9 @@ async function mainLinux() {
             this.data = args[2];
         },
         onLeave(retval) {
-            let data = Memory.readUtf8String(this.data).substring(0, 10);
+            let data = Memory.readUtf8String(this.data).substring(0, 20);
             if (!findAppid && /^\d+$/.test(data) && data.startsWith("5")) {
-                send(Memory.readUtf8String(this.data));
+                send(data);
                 findAppid = true;
             }
         }
