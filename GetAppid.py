@@ -12,7 +12,7 @@ def on_message(message, data):
 
 
 def main():
-    pid = frida.spawn(program="/opt/QQ/qq",argv=["--no-sandbox"], env={"display":":1"})
+    pid = frida.spawn(['/opt/QQ/qq','--no-sandbox'])
     session = frida.attach(pid)
     frida.resume(pid)
     with open("GetAppid.js") as f:
