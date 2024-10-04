@@ -17,7 +17,7 @@ def main():
         pid = int(f.read())
     print("real PID",pid)
     session = frida.attach(pid)
-    frida.resume(pid)
+    #frida.resume(pid)
     with open("GetAppid.js") as f:
         script = session.create_script(f.read())
         script.on('message', on_message)
