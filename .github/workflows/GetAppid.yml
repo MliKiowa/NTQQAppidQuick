@@ -10,13 +10,11 @@ jobs:
         - name: Clone Repository
           uses: actions/checkout@v4
 
-        - name: Install Node.js
-          uses: actions/setup-node@v4
+        - uses: actions/setup-python@v5
           with:
-            node-version: 20
-        
+            python-version: '3.10' 
+
         - name: Get Appid
           run: |
-            chmod +x GetAppid.sh
-            sudo bash ./GetAppid.sh
-            ls  /opt/QQ/resources/app/
+            python -m pip install frida
+            python GetAppid.py
