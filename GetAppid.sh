@@ -40,6 +40,6 @@ fluxbox &
 sleep 5  # 等待 fluxbox 启动
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
 python -m pip install frida
-/opt/QQ/qq --no-sandbox  --disable-gpu &
-sleep 1
+#/opt/QQ/qq --no-sandbox  --disable-gpu &
+#sleep 1
 sudo python GetAppid.py

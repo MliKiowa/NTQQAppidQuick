@@ -10,11 +10,11 @@ def on_message(message, data):
         #     f.write(message['payload'] + '\n')
 
 def main():
-    # env = {'DISPLAY': ':1'}
-    # pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox'], env=env)
+    env = {'DISPLAY': ':1'}
+    pid = frida.spawn(['/opt/QQ/qq', '--no-sandbox','--disable-gpu'], env=env)
     # pid在/opt/QQ/pid.txt
-    with open("/opt/QQ/pid.txt") as f:
-        pid = int(f.read())
+    # with open("/opt/QQ/pid.txt") as f:
+    #     pid = int(f.read())
     print("real PID",pid)
     session = frida.attach(pid)
     frida.resume(pid)
