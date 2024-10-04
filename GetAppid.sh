@@ -28,8 +28,8 @@ apt-get -f install -y
 rm linuxqq.deb
 chmod 777 /opt/QQ/
 
-mv ./LoadDelay.js /opt/QQ/resources/app/LoadDelay.js
-sed -i 's/"main": ".\/application\/app_launcher\/index.js"/"main": ".\/LoadDelay.js"/' /opt/QQ/resources/app/package.json
+#mv ./LoadDelay.js /opt/QQ/resources/app/LoadDelay.js
+#sed -i 's/"main": ".\/application\/app_launcher\/index.js"/"main": ".\/LoadDelay.js"/' /opt/QQ/resources/app/package.json
 
 # 启动QQ
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
