@@ -42,5 +42,4 @@ x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/pass
 python -m pip install frida
 /opt/QQ/qq --no-sandbox  --disable-gpu &
 sleep 1
-cat /opt/QQ/pid.txt
-python GetAppid.py
+sudo python GetAppid.py
