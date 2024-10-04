@@ -15,25 +15,24 @@ apt-get install -y \
     libasound2 \
     fonts-wqy-zenhei \
     gnutls-bin \
-    tzdata \
-    fluxbox \
-    x11vnc
+    tzdata
+
+# 安装关键依赖
+apt-get install fluxbox -y
+apt-get install x11vnc -y
+
 # 安装QQ
 curl -o linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/1aff6d6d/linuxqq_3.2.12-28060_amd64.deb
 dpkg -i linuxqq.deb
 apt-get -f install -y
 rm linuxqq.deb
-# 启动脚本
 chmod 777 /opt/QQ/
-mv ./LoadGetAppid.js /opt/QQ/resources/app/LoadGetAppid.js
-sed -i 's/"main": ".\/application\/app_launcher\/index.js"/"main": ".\/LoadGetAppid.js"/' /opt/QQ/resources/app/package.json
-# 依赖安装
-cd /opt/QQ/resources/app/
-npm i frida
+
 # 启动QQ
 dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address &
 Xvfb :1 -screen 0 1080x760x16 &
 fluxbox &
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
 export DISPLAY=:1 &
-qq --no-sandbox
+npm i frida &
+node ./GetAppid.js
