@@ -17,8 +17,6 @@ apt-get install -y \
     gnutls-bin \
     tzdata \
     fluxbox \
-    nodejs \
-    npm \
     x11vnc
 # 安装QQ
 curl -o linuxqq.deb https://dldir1.qq.com/qqfile/qq/QQNT/1aff6d6d/linuxqq_3.2.12-28060_amd64.deb
