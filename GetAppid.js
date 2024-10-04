@@ -2,14 +2,12 @@ let findAppid = false;
 
 const waitModule = Process.platform == 'linux' ? 'qq' : 'QQNT.dll';
 const symbolGetString = "napi_get_value_string_utf8";
-send("Hooking");
 async function main() {
+    send("Platform Moudle:" + waitModule);
     let hookPtr = Module.findExportByName(waitModule, symbolGetString);
     while (hookPtr == null) {
         hookPtr = Module.findExportByName(waitModule, symbolGetString);
     }
-    console.log("Platform Module:", waitModule);
-    send("Platform Module:" + waitModule);
     Interceptor.attach(hookPtr, {
         onEnter(args) {
             this.data = args[2];
