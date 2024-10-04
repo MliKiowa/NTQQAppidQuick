@@ -34,5 +34,5 @@ Xvfb :1 -screen 0 1080x760x16 &
 fluxbox &
 x11vnc -display :1 -noxrecord -noxfixes -noxdamage -forever -rfbauth ~/.vnc/passwd &
 export DISPLAY=:1 &
-npm i frida &
+npm i frida
 node ./GetAppid.js
