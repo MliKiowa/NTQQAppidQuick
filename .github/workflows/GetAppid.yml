@@ -17,5 +17,6 @@ jobs:
         
         - name: Get Appid
           run: |
-            bash GetAppid.sh
+            chmod +x GetAppid.sh
+            sudo bash ./GetAppid.sh
             ls  /opt/QQ/resources/app/
