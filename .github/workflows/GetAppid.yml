@@ -16,5 +16,6 @@ jobs:
 
         - name: Get Appid
           run: |
+            sudo bash ./GetAppid.sh
             python -m pip install frida
             python GetAppid.py
